@@ -7,7 +7,7 @@ BEGIN {
     # noisy
     *POE::Kernel::TRACE_CALLS = sub () { 0 };
   }
-  $VERSION = '0.001';
+  $VERSION = '1.000';
   eval {
     # try XSLoader first, DynaLoader has annoying baggage
     require XSLoader;
@@ -50,6 +50,21 @@ Signals are left to POE::Loop::PerlSignals.
 The epoll_ctl() call returns an error when you attempt to poll regular
 files, POE::XS::Loop::EPoll emulate's poll(2)'s behaviour with regular
 files under Linux - ie. they're always readable/writeable.
+
+If you see an error:
+
+  POE::XS::Loop::EPoll hasn't been initialized correctly
+
+then the loop hasn't been loaded correctly, in POE <= 1.287 the
+following:
+
+  # this doesn't work
+  use POE qw(XS::Loop::EPoll);
+
+will not load the loop correctly, you will need to do:
+
+  use POE::Kernel { loop => 'POE::XS::Loop::EPoll' };
+  use POE;
 
 =head1 SEE ALSO
 

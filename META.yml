@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               POE-XS-Loop-EPoll
-version:            1.001_01
+version:            1.001_02
 abstract:           XS loop implementation for POE using epoll_*()
 author:
     - Tony Cook <tonyc@cpan.org>

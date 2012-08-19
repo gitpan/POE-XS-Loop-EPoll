@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               POE-XS-Loop-EPoll
-version:            1.001_02
+version:            1.002
 abstract:           XS loop implementation for POE using epoll_*()
 author:
     - Tony Cook <tonyc@cpan.org>
@@ -15,12 +15,12 @@ build_requires:
 requires:
     POE:  1.003
 resources:
-    repository:  http://imager.perl.org/svn/trunk/POE-XS-Loop-EPoll
+    repository:  git://github.com/tonycoz/poe-xs-loop-epoll.git
 no_index:
     directory:
         - t
         - inc
-generated_by:       ExtUtils::MakeMaker version 6.54
+generated_by:       ExtUtils::MakeMaker version 6.55_02
 meta-spec:
     url:      http://module-build.sourceforge.net/META-spec-v1.4.html
     version:  1.4

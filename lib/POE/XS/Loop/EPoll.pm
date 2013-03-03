@@ -7,17 +7,9 @@ BEGIN {
     # noisy
     *POE::Kernel::TRACE_CALLS = sub () { 0 };
   }
-  $VERSION = '1.002';
-  eval {
-    # try XSLoader first, DynaLoader has annoying baggage
-    require XSLoader;
-    XSLoader::load('POE::XS::Loop::EPoll' => $VERSION);
-    1;
-  } or do {
-    require DynaLoader;
-    push @ISA, 'DynaLoader';
-    bootstrap POE::XS::Loop::EPoll $VERSION;
-  }
+  $VERSION = '1.003';
+  require XSLoader;
+  XSLoader::load('POE::XS::Loop::EPoll' => $VERSION);
 }
 
 require POE::Loop::PerlSignals;
@@ -73,6 +65,14 @@ POE, POE::Loop, POE::XS::Loop::Poll.
 =head1 BUGS
 
 Relies upon small fd numbers, but then a lot of code does.
+
+New bugs should be reported via request tracker, either mail to:
+
+  bug-POE-XS-Loop-EPoll@rt.cpan.org
+
+or using the form at:
+
+  https://rt.cpan.org/Ticket/Create.html?Queue=POE-XS-Loop-EPoll
 
 =head1 LICENSE
 

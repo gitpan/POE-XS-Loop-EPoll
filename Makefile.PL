@@ -85,9 +85,11 @@ my %opts =
    NAME => 'POE::XS::Loop::EPoll',
    VERSION_FROM => 'lib/POE/XS/Loop/EPoll.pm',
    OBJECT => 'EPoll.o alloc.o poexs.o',
-   PREREQ_PM => {
-		 'POE'    => 1.003,
-		},
+   PREREQ_PM =>
+   {
+    'POE'      => 1.003,
+    'XSLoader' => 0
+   },
    test => {
 	    TESTS => 't/poe_xs_loop_epoll/*.t',
 	   },
@@ -137,7 +139,10 @@ if ($eu_mmv >= 6.46) {
      configure_requires => { "POE::Test::Loops" => "1.033" },
      build_requires => { "POE::Test::Loops" => "1.033" },
      resources =>
-     { repository => "git://github.com/tonycoz/poe-xs-loop-epoll.git" },
+     {
+      repository => "git://github.com/tonycoz/poe-xs-loop-epoll.git",
+      bugtracker => "http://rt.cpan.org/Public/Dist/Display.html?Name=POE-XS-Loop-EPoll",
+     },
     };
 }
 
